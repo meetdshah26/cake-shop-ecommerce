@@ -58,7 +58,7 @@ export function CakeCard({ cake }: { cake: Cake }) {
 
   return <article className='group relative overflow-hidden rounded-[1.75rem] border border-[#eadfd8] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft'>
     <Link to={'/cakes/' + cake.id} className='absolute inset-0 z-10' aria-label={'View details for ' + cake.name} />
-    <div className='relative overflow-hidden'><CakePhoto index={cake.imageIndex} collection={cake.imageCollection} className='aspect-[4/3] transition duration-500 group-hover:scale-[1.03]' />{cake.badge && <CakePromoBadge label={cake.badge} cakeId={cake.id} />}</div>
+    <div className='relative overflow-hidden'><CakePhoto index={cake.imageIndex} collection={cake.imageCollection} src={cake.image} alt={cake.name} className='aspect-[4/3] transition duration-500 group-hover:scale-[1.03]' />{cake.badge && <CakePromoBadge label={cake.badge} cakeId={cake.id} />}</div>
     <div className='p-5'><div className='mb-2 flex items-start justify-between gap-3'><div><p className='mb-1 text-xs font-bold uppercase tracking-[.18em] text-gold'>{cake.category}</p><h3 className='font-display text-2xl font-semibold text-cocoa'>{cake.name}</h3></div><p className='whitespace-nowrap font-bold text-berry'>₹{cake.price}<span className='text-xs font-medium text-stone-500'>+</span></p></div>
     <p className='mb-5 min-h-12 text-sm leading-6 text-stone-600'>{cake.description}</p><button onClick={addToCart} className='btn-primary relative z-20 w-full !px-4 !py-2.5 text-sm'><ShoppingBag size={16} /> Add to cart</button></div>
   </article>

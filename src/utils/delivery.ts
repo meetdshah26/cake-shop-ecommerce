@@ -17,7 +17,7 @@ export function isDeliveryServiceable(delivery: SavedDelivery) {
 
 export function readSavedDelivery(): SavedDelivery {
   try {
-    const saved = JSON.parse(localStorage.getItem('crumb-delivery') || 'null') as SavedDelivery | null
+    const saved = JSON.parse(localStorage.getItem('velvet-whisk-delivery') || 'null') as SavedDelivery | null
     return saved && isDeliveryServiceable(saved) ? saved : { pincode: '', location: null }
   } catch {
     return { pincode: '', location: null }

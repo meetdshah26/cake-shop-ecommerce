@@ -25,7 +25,7 @@ export function DeliveryProvider({ children }: { children: ReactNode }) {
 
   const finish = (nextDelivery: SavedDelivery) => {
     setDelivery(nextDelivery)
-    localStorage.setItem('crumb-delivery', JSON.stringify(nextDelivery))
+    localStorage.setItem('velvet-whisk-delivery', JSON.stringify(nextDelivery))
     setIsOpen(false)
     setError('')
     pendingAction.current?.()

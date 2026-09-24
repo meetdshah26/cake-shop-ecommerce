@@ -7,10 +7,14 @@ export type Cake = {
   details: string
   imageIndex: number
   imageCollection?: 'cakes' | 'bakes'
+  image?: string
   badge?: string
 }
 
 export const cakes: Cake[] = [
+  { id: 11, name: 'Pistachio Birthday Swirl', category: 'Birthday', price: 799, imageIndex: 0, image: '/images/green-birthday-cake.png', badge: 'Just Launched', description: 'Vibrant green swirls finished with golden pearls and a birthday topper.', details: 'A joyful handcrafted birthday cake with sweeping green buttercream, delicate sugar pearls and an elegant golden topper, created to make the celebration shine.' },
+  { id: 12, name: 'Ruby Heart Celebration', category: 'Anniversary', price: 849, imageIndex: 0, image: '/images/red-heart-cake.png', badge: 'Most Loved', description: 'A bold heart-shaped cake with rich red buttercream piping.', details: 'A romantic heart-shaped celebration cake wrapped in vivid red buttercream with hand-piped borders and space for your own personalised message.' },
+  { id: 13, name: 'Floral Drapery Cake', category: 'Designer', price: 1099, imageIndex: 0, image: '/images/floral-drapery-cake.png', badge: 'Signature', description: 'Elegant curtain piping crowned with fresh pink and white flowers.', details: 'A statement designer cake inspired by flowing fabric, finished with detailed white piping, pearl accents and a generous arrangement of pink, white and red flowers.' },
   { id: 1, name: 'Midnight Truffle', category: 'Birthday', price: 599, imageIndex: 0, badge: 'Bestseller', description: 'Dark chocolate ganache with velvety cocoa layers.', details: 'An intensely chocolatey celebration cake layered with moist cocoa sponge and silky dark ganache, finished with handmade truffles.' },
   { id: 2, name: 'Scarlet Velvet', category: 'Anniversary', price: 699, imageIndex: 1, badge: 'Most Loved', description: 'Classic red velvet with smooth cream cheese frosting.', details: 'A tender crimson sponge with delicate cocoa notes, generously layered with our tangy vanilla cream cheese frosting.' },
   { id: 3, name: 'Caramel Crunch', category: 'Kids', price: 649, imageIndex: 2, description: 'Butterscotch cream, caramel and praline crunch.', details: 'Golden vanilla sponge, airy butterscotch mousse and salted caramel come together with a joyful praline crunch.' },

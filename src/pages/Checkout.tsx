@@ -21,7 +21,7 @@ export function Checkout() {
   const placeOrder = () => {
     if (!canPlaceOrder) return
     const order = { orderNumber: 'CAKE-' + Math.floor(1000 + Math.random() * 9000), customer, delivery, items, subtotal, deliveryFee, total: subtotal + deliveryFee }
-    localStorage.setItem('crumb-last-order', JSON.stringify(order))
+    localStorage.setItem('velvet-whisk-last-order', JSON.stringify(order))
     clearCart()
     navigate('/confirmation')
   }
@@ -45,7 +45,7 @@ export function Checkout() {
 
       <aside className='sticky top-28 overflow-hidden rounded-[1.75rem] border border-[#eadfd8] bg-white shadow-soft'>
         <div className='flex items-end justify-between bg-cocoa px-6 py-5 text-white'><div><p className='text-xs font-bold uppercase tracking-[.18em] text-white/55'>Order summary</p><h2 className='mt-1 font-display text-3xl font-semibold'>Your order</h2></div><span className='rounded-full bg-white/10 px-3 py-1 text-xs font-bold'>{itemCount} {itemCount === 1 ? 'item' : 'items'}</span></div>
-        <div className='p-6'><div className='max-h-64 space-y-4 overflow-auto pr-1'>{items.map((item) => <div key={item.cartId} className='flex items-center gap-3'><CakePhoto index={item.imageIndex} collection={item.imageCollection} className='size-16 shrink-0 rounded-xl ring-1 ring-[#eadfd8]' /><div className='min-w-0 flex-1'><h3 className='truncate font-bold text-cocoa'>{item.name}</h3><p className='mt-0.5 text-xs text-stone-500'>{item.quantity} × {item.size}</p></div><span className='text-sm font-bold text-cocoa'>₹{item.itemPrice * item.quantity}</span></div>)}</div>
+        <div className='p-6'><div className='max-h-64 space-y-4 overflow-auto pr-1'>{items.map((item) => <div key={item.cartId} className='flex items-center gap-3'><CakePhoto index={item.imageIndex} collection={item.imageCollection} src={item.image} alt={item.name} className='size-16 shrink-0 rounded-xl ring-1 ring-[#eadfd8]' /><div className='min-w-0 flex-1'><h3 className='truncate font-bold text-cocoa'>{item.name}</h3><p className='mt-0.5 text-xs text-stone-500'>{item.quantity} × {item.size}</p></div><span className='text-sm font-bold text-cocoa'>₹{item.itemPrice * item.quantity}</span></div>)}</div>
           <div className='mt-6 grid gap-3 border-y border-dashed border-[#dfd0c8] py-5 text-sm'><p className='flex justify-between text-stone-500'><span>Subtotal</span><span>₹{subtotal}</span></p><p className='flex justify-between text-stone-500'><span>Delivery fee</span><span>₹{deliveryFee}</span></p><p className='mt-1 flex justify-between text-xl font-bold text-cocoa'><span>Total</span><span className='text-berry'>₹{subtotal + deliveryFee}</span></p></div>
           <button disabled={!canPlaceOrder} onClick={placeOrder} className='btn-primary mt-6 w-full disabled:cursor-not-allowed disabled:opacity-40'>Place order <Navigation size={18} /></button>
           {!canPlaceOrder && <p className='mt-3 text-center text-xs font-medium text-stone-500'>Complete all required details to place your order.</p>}

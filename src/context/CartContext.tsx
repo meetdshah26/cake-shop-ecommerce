@@ -7,9 +7,9 @@ type CartContextValue = { items: CartItem[]; itemCount: number; subtotal: number
 const CartContext = createContext<CartContextValue | null>(null)
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>(() => { try { return JSON.parse(localStorage.getItem('crumb-cart') || '[]') } catch { return [] } })
+  const [items, setItems] = useState<CartItem[]>(() => { try { return JSON.parse(localStorage.getItem('velvet-whisk-cart') || '[]') } catch { return [] } })
   useEffect(() => {
-    localStorage.setItem('crumb-cart', JSON.stringify(items))
+    localStorage.setItem('velvet-whisk-cart', JSON.stringify(items))
   }, [items])
   const addItem = (cake: Cake, size = '0.5 kg', quantity = 1, message = '', itemPrice = cake.price) => {
     const cartId = cake.id + '-' + size + '-' + message
