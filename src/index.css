@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; min-width: 320px; overflow-x: hidden; background: #fffaf4; color: #292524; font-family: 'DM Sans', system-ui, sans-serif; }
+  button, input, textarea { font: inherit; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid rgba(143, 49, 76, .3); outline-offset: 2px; }
+  ::selection { background: #8f314c; color: white; }
+}
+
+@layer components {
+  .page-shell { @apply mx-auto min-w-0 w-full max-w-[1220px] px-5 sm:px-7; }
+  .section-space { @apply py-16 sm:py-24; }
+  .eyebrow { @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.22em] text-berry; }
+  .section-heading { @apply mx-auto mb-10 max-w-2xl text-center sm:mb-14; }
+  .section-heading h1, .section-heading h2 { @apply mt-3 font-display text-4xl font-semibold leading-tight text-cocoa sm:text-5xl; }
+  .section-heading p:last-child { @apply mt-4 leading-7 text-stone-600; }
+  .btn-primary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-berry px-6 py-3 font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#76253d] hover:shadow-lg; }
+  .btn-secondary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#d8c4bb] bg-white/70 px-6 py-3 font-bold text-cocoa transition hover:-translate-y-0.5 hover:border-berry hover:text-berry; }
+  .btn-light { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-bold text-cocoa transition hover:-translate-y-0.5 hover:bg-blush; }
+  .field-label { @apply mb-2 block text-sm font-bold text-cocoa; }
+  .field-input { @apply w-full rounded-xl border border-[#dfd0c8] bg-white px-4 py-3 text-stone-800 outline-none transition placeholder:text-stone-400 focus:border-berry focus:ring-2 focus:ring-berry/10; }
+  .form-card { @apply flex flex-col gap-4 rounded-[1.75rem] border border-[#eadfd8] bg-white p-5 shadow-sm sm:flex-row sm:gap-5 sm:p-7; }
+  .form-card > div { @apply min-w-0 flex-1; }
+  .form-title { @apply font-display text-2xl font-semibold text-cocoa sm:text-3xl; }
+  .step-number { @apply grid size-9 shrink-0 place-items-center rounded-full bg-blush text-sm font-bold text-berry; }
+  .location-option { @apply flex min-h-28 items-center gap-3 rounded-2xl border border-[#dfd0c8] bg-cream p-4 text-left text-stone-500 transition hover:border-berry; }
+  .location-option > svg { @apply shrink-0 text-berry; }
+  .location-option strong { @apply block text-sm text-cocoa; }
+  .location-option small { @apply mt-1 block text-xs text-stone-500; }
+  .location-option.selected { @apply border-berry bg-blush; }
+  .detail-chip { @apply rounded-full bg-blush px-3 py-1.5 text-xs font-bold text-berry; }
+  .gallery-arrow { @apply absolute top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-cocoa shadow-lg backdrop-blur transition hover:scale-105 hover:bg-white hover:text-berry; }
+}
+
+.cake-photo {
+  background-image: url('/images/cake-collection.png');
+  background-repeat: no-repeat;
+  background-size: 300% 200%;
+  background-color: #f3e6da;
+}
+.cake-photo--top { background-image: url('/images/cake-collection-top.png'); }
+.cake-photo--bakes { background-image: url('/images/bakes-collection.png'); }
+.cake-photo--detail { background-size: 360% 240%; }
+.cake-slide-enter { animation: cake-slide-in .45s ease-out; }
+.cake-badge-attract {
+  animation: badge-attract .55s ease-out;
+  box-shadow: 0 0 0 0 rgba(143, 49, 76, .38), 0 5px 16px rgba(74, 37, 38, .15);
+}
+
+@keyframes cake-slide-in {
+  from { opacity: .45; transform: translateX(5%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes badge-attract {
+  0% { opacity: 0; transform: translateY(-6px) scale(.92); filter: brightness(1.15); }
+  65% { opacity: 1; transform: translateY(0) scale(1.06); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: brightness(1); }
+}
+.cake-photo-0 { background-position: 0% 0%; }
+.cake-photo-1 { background-position: 50% 0%; }
+.cake-photo-2 { background-position: 100% 0%; }
+.cake-photo-3 { background-position: 0% 100%; }
+.cake-photo-4 { background-position: 50% 100%; }
+.cake-photo-5 { background-position: 100% 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  header nav[aria-label='Main navigation'] { display: none !important; }
+  header button[aria-label='Toggle menu'] { display: grid !important; }
+  header > nav { display: block !important; }
+}
+
+@media (max-width: 639px) {
+  main h1 { overflow-wrap: anywhere; font-size: 2.5rem !important; line-height: 1.08 !important; }
+  main h2 { overflow-wrap: anywhere; }
+  aside.sticky { position: static; }
+  .gallery-arrow { width: 2.5rem; height: 2.5rem; }
+}
